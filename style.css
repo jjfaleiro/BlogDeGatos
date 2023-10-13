@@ -1,0 +1,204 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+:root {
+  font-size: 62.5%;
+}
+
+html,
+body,
+input {
+  font-family: 'Mulish', sans-serif;
+  font-size: 1.6rem;
+}
+
+body {
+  background-color: #065e7c;
+
+  text-align: justify;
+}
+
+#page {
+  display: grid;
+  grid-template-rows: max-content 1fr max-content;
+
+  height: 100vh;
+}
+
+.limited {
+  width: min(118rem, 100%);
+  margin: 0 auto;
+
+  padding: 1.6rem 2.8rem;
+}
+
+header nav {
+  display: grid;
+  grid-template-columns: max-content 1fr max-content;
+
+  gap: 2.5rem;
+}
+
+header #icon {
+  width: 4.2rem;
+  height: 4rem;
+}
+
+.input-wrapper label {
+  width: 1px;
+  height: 1px;
+  /*Ou seja oque transbordar torne invisível*/
+  overflow: hidden;
+  position: absolute;
+}
+
+.input-wrapper input {
+  width: 100%;
+  height: 4rem;
+
+  border: none;
+  border-radius: 0.4rem;
+
+  background-color: #387e96;
+
+  padding: 1.2rem 1.4rem;
+  color: #ffffff;
+}
+
+.input-wrapper input::placeholder {
+  color: #ffffff;
+}
+
+.input-wrapper input:focus {
+  outline: 1px solid #ffffff;
+}
+
+.avatar {
+  width: 4.2rem;
+  height: 4.2rem;
+
+  border-radius: 50%;
+}
+
+main {
+  background-color: #ffffff;
+
+  overflow-y: scroll;
+}
+
+#image-principal {
+  width: 100%;
+  height: 30rem;
+
+  object-fit: cover;
+}
+
+#content {
+  padding-top: 3.2rem;
+}
+
+#like {
+  padding-top: 0.8rem;
+
+  display: flex;
+  gap: 1.6rem;
+}
+
+#like img {
+  height: 4rem;
+  width: 4rem;
+}
+
+#content p {
+  padding-top: 3.2rem;
+}
+
+aside {
+  padding-top: 3.4rem;
+
+  display: flex;
+  flex-direction: column;
+
+  gap: 3.2rem;
+}
+
+#items {
+  display: flex;
+  flex-direction: column;
+
+  gap: 3.2rem;
+}
+
+.item {
+  display: flex;
+
+  gap: 1.6rem;
+}
+
+.item img {
+  width: 15rem;
+  height: 9rem;
+
+  border-radius: 0.5rem;
+
+  object-fit: cover;
+}
+
+.item figcaption {
+  display: flex;
+  flex-direction: column;
+
+  gap: 1.6rem;
+}
+
+footer {
+  text-align: center;
+  padding: 2.6rem 0;
+
+  color: #ffffff;
+}
+
+@media (min-width: 400px) {
+  /* #page {
+    display: grid;
+    grid-template-areas: 
+    'A A A A'
+    'B B B B'
+    'D D D D'
+    ;
+
+  }
+
+  header {
+    grid-area: A;
+  } */
+
+  main {
+    /* grid-area: B; */
+
+    display: grid;
+    grid-template-areas: 
+    'A A A C'
+    'B B B C';
+  }
+
+  main img {
+    grid-area: A;
+  }
+
+  main #content {
+    grid-area: B;
+  }
+
+  main aside {
+    grid-area: C;
+  }
+
+  /* footer {
+    grid-area: D;
+  } */
+  
+}
