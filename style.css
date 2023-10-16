@@ -17,8 +17,25 @@ input {
 
 body {
   background-color: #065e7c;
+}
 
-  text-align: justify;
+body h1,
+body h2 {
+  font-size: 2.4rem;
+  font-weight: 700;
+}
+
+body h3 {
+  font-size: 1.8rem;
+  font-weight: 700;
+}
+
+figcaption p {
+  font-size: 1.4rem;
+}
+
+footer p {
+  font-weight: 600;
 }
 
 #page {
@@ -31,11 +48,11 @@ body {
 .limited {
   width: min(118rem, 100%);
   margin: 0 auto;
-
-  padding: 1.6rem 2.8rem;
 }
 
 header nav {
+  padding: 1.6rem;
+
   display: grid;
   grid-template-columns: max-content 1fr max-content;
 
@@ -90,6 +107,7 @@ main {
 }
 
 #image-principal {
+  display: flex;
   width: 100%;
   height: 30rem;
 
@@ -97,7 +115,7 @@ main {
 }
 
 #content {
-  padding-top: 3.2rem;
+  padding: 3.2rem 1.6rem 0;
 }
 
 #like {
@@ -117,7 +135,7 @@ main {
 }
 
 aside {
-  padding-top: 3.4rem;
+  padding: 3.4rem 1.6rem 4rem; /*AQUI!!!*/
 
   display: flex;
   flex-direction: column;
@@ -134,71 +152,114 @@ aside {
 
 .item {
   display: flex;
+  align-items: center;
 
   gap: 1.6rem;
 }
 
 .item img {
-  width: 15rem;
+  width: min(15rem, 100%);
   height: 9rem;
 
   border-radius: 0.5rem;
-
   object-fit: cover;
+
+  transition: rotate 0.4s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 .item figcaption {
   display: flex;
   flex-direction: column;
 
-  gap: 1.6rem;
+  width: min(21.5rem, 100%);
+
+  gap: 1.4rem;
 }
 
 footer {
   text-align: center;
-  padding: 2.6rem 0;
+
+  padding: 2.4rem 1.6rem;
 
   color: #ffffff;
 }
 
-@media (min-width: 400px) {
-  /* #page {
-    display: grid;
-    grid-template-areas: 
-    'A A A A'
-    'B B B B'
-    'D D D D'
-    ;
+@media (min-width: 800px) {
+  #main-content {
+    width: min(118rem, 100%);
+    padding: 4rem 1.6rem;
+    margin: 0 auto;
 
+    display: grid;
+    grid-template:
+      'A B' max-content
+      'A B' max-content / 65% 35%;
+
+    gap: 3.2rem;
   }
 
-  header {
+  main #div {
     grid-area: A;
+  }
+
+  #div #image-principal {
+    border-radius: 0.5rem;
+  }
+
+  #likes {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  /* .limited {
+    padding: 0;
   } */
 
-  main {
-    /* grid-area: B; */
-
-    display: grid;
-    grid-template-areas: 
-    'A A A C'
-    'B B B C';
-  }
-
-  main img {
-    grid-area: A;
-  }
-
-  main #content {
+  main aside .limited {
     grid-area: B;
+
+    padding: 0;
   }
 
-  main aside {
-    grid-area: C;
+  #like {
+    padding-top: 0;
   }
 
-  /* footer {
-    grid-area: D;
-  } */
-  
+  #content {
+    padding: 3.2rem 0 0 0;
+  }
+
+  aside {
+    padding: 0;
+  }
+}
+
+#image-principal {
+  animation: rotate-top 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+}
+
+img:active {
+  animation: slide-rotate-ver-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    both;
+}
+
+@keyframes rotate-top {
+  0% {
+    transform: rotate(0);
+    transform-origin: top;
+  }
+  100% {
+    transform: rotate(360deg);
+    transform-origin: top;
+  }
+}
+
+@keyframes slide-rotate-ver-left {
+  0% {
+    transform: translateX(0) translateY(0) rotateY(0);
+  }
+  100% {
+    transform: translateX(-100px) translateY(100px) rotateY(180deg);
+  }
 }
