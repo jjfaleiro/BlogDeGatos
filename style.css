@@ -6,6 +6,16 @@
 
 :root {
   font-size: 62.5%;
+
+  --hue: 195;
+  --bc-color: hsl(var(--hue), 91%, 25%);
+  --input-color: hsl(var(--hue), 46%, 40%);
+
+  --hue-words: 240;
+  --title-color: hsl(var(--hue-words), 6%, 13%);
+  --paragraph-color: hsl(var(--hue-words), 5%, 7%);
+
+  --basic-white: hsl(0, 0%, 100%);
 }
 
 html,
@@ -16,7 +26,14 @@ input {
 }
 
 body {
-  background-color: #065e7c;
+  background-color: var(--bc-color);
+  color: var(--paragraph-color);
+}
+
+h1,
+h2,
+h3 {
+  color: var(--title-color);
 }
 
 body h1,
@@ -79,18 +96,18 @@ header #icon {
   border: none;
   border-radius: 0.4rem;
 
-  background-color: #387e96;
+  background-color: var(--input-color);
 
   padding: 1.2rem 1.4rem;
-  color: #ffffff;
+  color: var(--basic-white);
 }
 
 .input-wrapper input::placeholder {
-  color: #ffffff;
+  color: var(--basic-white);
 }
 
 .input-wrapper input:focus {
-  outline: 1px solid #ffffff;
+  outline: 1px solid var(--basic-white);
 }
 
 .avatar {
@@ -101,7 +118,7 @@ header #icon {
 }
 
 main {
-  background-color: #ffffff;
+  background-color: var(--basic-white);
 
   overflow-y: scroll;
 }
@@ -181,7 +198,7 @@ footer {
 
   padding: 2.4rem 1.6rem;
 
-  color: #ffffff;
+  color: var(--basic-white);
 }
 
 @media (min-width: 800px) {
@@ -236,12 +253,11 @@ footer {
 }
 
 #image-principal {
-  animation: rotate-top 0.5s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
+  animation: rotate-top 3s cubic-bezier(0.455, 0.03, 0.515, 0.955) both;
 }
 
 img:active {
-  animation: slide-rotate-ver-left 0.5s cubic-bezier(0.25, 0.46, 0.45, 0.94)
-    both;
+  animation: slide-rotate-ver-left 1s cubic-bezier(0.25, 0.46, 0.45, 0.94) both;
 }
 
 @keyframes rotate-top {
@@ -250,7 +266,7 @@ img:active {
     transform-origin: top;
   }
   100% {
-    transform: rotate(360deg);
+    transform: rotate(1080deg);
     transform-origin: top;
   }
 }
@@ -261,5 +277,39 @@ img:active {
   }
   100% {
     transform: translateX(-100px) translateY(100px) rotateY(180deg);
+  }
+}
+
+header,
+footer {
+  animation: transition 1s ease-in-out;
+}
+
+@keyframes transition {
+  0% {
+    transform: scale(0.2);
+    opacity: 0.2;
+  }
+
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+}
+
+.item {
+  --delay: 0.3s;
+  animation: appear 0.6s var(--delay) backwards;
+}
+
+/*appear (aparecer) */
+@keyframes appear {
+  0% {
+    opacity: 0;
+    transform: scale(0.6);
+  }
+
+  50% {
+    transform: scale(1.2);
   }
 }
